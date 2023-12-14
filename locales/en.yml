@@ -1,0 +1,8 @@
+en:
+  more_link: More
+  post_button: Post
+  theme_metadata:
+    description: Create and feature custom topic lists.
+    settings:
+      show_on: Route on which the component is rendered
+      plugin_outlet: Layout position for the component

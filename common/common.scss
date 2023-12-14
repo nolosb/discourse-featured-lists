@@ -1,0 +1,29 @@
+.featured-lists {
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 2rem;
+  }
+  &__list-container {
+    flex: 1 1 100%;
+  }
+  &__list-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
+    gap: 1rem;
+    padding: 0 0.5rem;
+    .feed-link {
+      margin-left: auto;
+    }
+  }
+  &__list-body {
+  }
+}
+
+// Outlets
+.featured-lists__wrapper {
+  &.above-main-container {
+    margin-bottom: 1.5rem;
+  }
+}

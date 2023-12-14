@@ -1,0 +1,72 @@
+featured_lists:
+  default: >-
+    [{"title":"Latest Topics","length":3,"filter":"latest", "tag":"", "category":"","link":"/latest", "solved":""},
+    {"title":"Category: Site Feedback","length":3,"filter":"latest", "tag":"", "category":"2","link":"/c/2", "solved":""},
+    {"title":"Tag: featured","length":3,"filter":"latest", "tag":"featured", "category":"","link":"/tag/featured", "solved":""}]
+  json_schema: '{
+  "type": "array",
+  "format": "table",
+  "uniqueItems": true,
+  "items": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "description": "The list title"
+      },
+      "length": {
+        "type": "string",
+        "description": "Set the number of topics"
+      },
+      "filter": {
+        "type": "string",
+        "description": "Choose the type of list",
+        "enum": [
+          "latest",
+          "top",
+          "new",
+          "unread"
+        ]
+      },
+      "solved": {
+        "type": "string",
+        "description": "Filter by solved or unsolved",
+        "enum": [
+          "",
+          "solved",
+          "unsolved"
+        ]
+      },
+      "category": {
+        "type": "string",
+        "description": "Filter by category id"
+      },
+      "tag": {
+        "type": "string",
+        "description": "Filter by tag name"
+      },
+      "link": {
+        "type": "string",
+        "description": "Where the list should link to"
+      },
+      "classname": {
+        "type": "string",
+        "description": "Set a CSS class name for custom styles"
+      }
+    },
+    "additionalProperties": false
+  }
+}'
+show_on:
+  default: homepage
+  type: enum
+  choices:
+    - everywhere
+    - homepage
+    - latest/top/new/categories
+    - latest
+    - categories
+    - top
+plugin_outlet:
+  default: "above-main-container"
+
