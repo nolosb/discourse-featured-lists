@@ -2,8 +2,8 @@
   "name": "Featured Lists",
   "component": true,
   "authors": "Manuel Kostka",
-  "about_url": "TODO: Put your theme's public repo or Meta topic URL here",
-  "license_url": "TODO: Put your theme's LICENSE URL here",
+  "about_url": "https://meta.discourse.org/t/featured-lists/288916",
+  "license_url": "https://github.com/nolosb/discourse-featured-lists/blob/main/LICENSE",
   "minimum_discourse_version": "3.2.0.beta3",
   "maximum_discourse_version": null
 }
