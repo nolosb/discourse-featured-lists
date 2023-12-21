@@ -47,6 +47,10 @@ export default class FeaturedList extends Component {
 
   @action
   async findFilteredTopics() {
+    const userFilters = ['new', 'unread'];
+    if (userFilters.includes(`${this.args.list.filter}`) && !this.currentUser) {
+      return;
+    }
     const topicList = await this.store.findFiltered('topicList', {
       filter: this.args.list.filter,
       params: {
