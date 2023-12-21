@@ -17,24 +17,27 @@ export default class FeaturedList extends Component {
   @tracked filteredTopics = null;
 
   <template>
-    <div class='featured-lists__list-container {{@list.classname}}'>
-      <div class='featured-lists__list-header'>
-        <h2>{{@list.title}}</h2>
-        <a href='{{@list.link}}' class='feed-link'>{{i18n
-            (themePrefix 'more_link')
-          }}</a>
-        <DButton class='btn btn-default' @action={{this.createTopic}}>{{i18n
-            (themePrefix 'post_button')
-          }}</DButton>
+    {{#if this.filteredTopics}}
+      <div class='featured-lists__list-container {{@list.classname}}'>
+        <div class='featured-lists__list-header'>
+          <h2>{{@list.title}}</h2>
+          <a href='{{@list.link}}' class='feed-link'>{{i18n
+              (themePrefix 'more_link')
+            }}</a>
+          <DButton
+            class='btn btn-default'
+            {{on 'click' (if this.currentUser this.createTopic this.showLogin)}}
+          >{{i18n (themePrefix 'post_button')}}</DButton>
+        </div>
+        <ConditionalLoadingSpinner @condition={{this.isLoading}}>
+          <TopicList
+            @topics={{this.filteredTopics}}
+            @showPosters='true'
+            class='featured-lists__list-body'
+          />
+        </ConditionalLoadingSpinner>
       </div>
-      <ConditionalLoadingSpinner @condition={{this.isLoading}}>
-        <TopicList
-          @topics={{this.filteredTopics}}
-          @showPosters='true'
-          class='featured-lists__list-body'
-        />
-      </ConditionalLoadingSpinner>
-    </div>
+    {{/if}}
   </template>
 
   constructor() {
