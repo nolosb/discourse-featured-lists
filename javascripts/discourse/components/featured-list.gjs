@@ -1,5 +1,6 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
+import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import ConditionalLoadingSpinner from 'discourse/components/conditional-loading-spinner';
@@ -62,14 +63,15 @@ export default class FeaturedList extends Component {
 
   @action
   createTopic() {
-    if (this.currentUser) {
-      this.composer.openNewTopic({
-        category: Category.findById(this.args.list.category),
-        tags: this.args.list.tag,
-        preferDraft: 'true',
-      });
-    } else {
-      this.router.transitionTo('login');
-    }
+    this.composer.openNewTopic({
+      category: Category.findById(this.args.list.category),
+      tags: this.args.list.tag,
+      preferDraft: 'true',
+    });
+  }
+
+  @action
+  showLogin() {
+    this.router.replaceWith('login');
   }
 }
