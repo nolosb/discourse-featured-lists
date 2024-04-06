@@ -6,6 +6,7 @@ import FeaturedList from '../components/featured-list';
 
 export default class FeaturedListsWrapper extends Component {
   @service router;
+  @service siteSettings;
   @tracked featuredLists = JSON.parse(settings.featured_lists);
 
   <template>
