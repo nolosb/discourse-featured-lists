@@ -51,13 +51,19 @@ export default class FeaturedList extends Component {
     if (userFilters.includes(`${this.args.list.filter}`) && !this.currentUser) {
       return;
     }
+
+    let solvedFilter;
+    if (this.args.list.solved) {
+      solvedFilter = this.args.list.solved === 'solved' ? 'yes' : 'no';
+    }
+
     const topicList = await this.store.findFiltered('topicList', {
       filter: this.args.list.filter,
       params: {
         order: 'activity',
         category: this.args.list.category,
         tags: this.args.list.tag,
-        solved: this.args.list.solved,
+        solved: solvedFilter,
       },
     });
     if (topicList.topics) {
