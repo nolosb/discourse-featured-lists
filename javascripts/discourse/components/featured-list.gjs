@@ -54,7 +54,6 @@ export default class FeaturedList extends Component {
     const topicList = await this.store.findFiltered('topicList', {
       filter: this.args.list.filter,
       params: {
-        order: 'activity',
         category: this.args.list.category,
         tags: this.args.list.tag,
         solved: this.args.list.solved,

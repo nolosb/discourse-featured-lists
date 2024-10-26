@@ -23,6 +23,7 @@ featured_lists:
         "description": "Choose the type of list",
         "enum": [
           "latest",
+          "hot",
           "top",
           "new",
           "unread"
