@@ -64,6 +64,7 @@ show_on:
   choices:
     - everywhere
     - homepage
+    - custom
     - latest/top/new/categories
     - latest
     - categories
