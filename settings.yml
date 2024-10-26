@@ -23,6 +23,7 @@ featured_lists:
         "description": "Choose the type of list",
         "enum": [
           "latest",
+          "hot",
           "top",
           "new",
           "unread"
@@ -63,6 +64,7 @@ show_on:
   choices:
     - everywhere
     - homepage
+    - custom
     - latest/top/new/categories
     - latest
     - categories

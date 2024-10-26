@@ -26,6 +26,8 @@ export default class FeaturedListsWrapper extends Component {
         return !currentRoute.includes('admin');
       case 'homepage':
         return currentRoute === `discovery.${defaultHomepage()}`;
+      case 'custom':
+        return currentRoute === `discovery.custom`;
       case 'latest/top/new/categories':
         const topMenu = this.siteSettings.top_menu;
         const targets = topMenu.split('|').map((opt) => `discovery.${opt}`);
