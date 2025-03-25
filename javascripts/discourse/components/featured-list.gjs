@@ -5,7 +5,7 @@ import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import ConditionalLoadingSpinner from 'discourse/components/conditional-loading-spinner';
 import DButton from 'discourse/components/d-button';
-import TopicList from 'discourse/components/topic-list';
+import BasicTopicList from 'discourse/components/basic-topic-list';
 import Category from 'discourse/models/category';
 import i18n from 'discourse-common/helpers/i18n';
 
@@ -30,7 +30,7 @@ export default class FeaturedList extends Component {
           >{{i18n (themePrefix 'post_button')}}</DButton>
         </div>
         <ConditionalLoadingSpinner @condition={{this.isLoading}}>
-          <TopicList
+          <BasicTopicList
             @topics={{this.filteredTopics}}
             @showPosters='true'
             class='featured-lists__list-body'
